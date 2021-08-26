@@ -12,15 +12,28 @@ const connect = function () {
 
   conn.on('connect', () => {
     console.log('Server successfully connected.');
-    conn.write('Name: DAN');
   })
 
+  const hopeThisWorks1 = function() {
+      const moves = ['Move: up', 'Move: left', 'Move: right', 'Move: down']
+      const name = ['BU‎', 'B G', ' UG']
+      const randMove = Math.floor(Math.random() * 4);
+      const randName = Math.floor(Math.random() * 3);
+      conn.write(`Name: ${name[randName]}`);
+      conn.write(moves[randMove]);
+  };
+
+  setInterval(() => {
+    hopeThisWorks1();
+  }, 500);
+  
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
 
   conn.on('end', () => {
     console.log('Server disconnected.');
+    connect();
   })
 
   return conn;
