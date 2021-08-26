@@ -8,7 +8,7 @@ const KEYBINDS = {
   d: 'Move: right',
   o: 'Say: LETS GO',
   p: 'Say: LHL FTW',
-}
+};
 
 module.exports = {
   IP,
