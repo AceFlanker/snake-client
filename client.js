@@ -11,7 +11,8 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on('connect', () => {
-    console.log('Server connected.')
+    console.log('Server successfully connected.');
+    conn.write('Name: DAN');
   })
 
   conn.on('data', (data) => {
@@ -19,7 +20,7 @@ const connect = function () {
   });
 
   conn.on('end', () => {
-    console.log('Server disconnected.')
+    console.log('Server disconnected.');
   })
 
   return conn;
